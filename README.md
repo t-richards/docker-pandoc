@@ -10,12 +10,12 @@ A working pandoc environment with LaTeX tools for PDF creation.
 
 ```bash
 # Compile myfile.md to myfile.pdf
-$ docker run -v $(pwd):/source t-richards/pandoc --from markdown --to latex -o myfile.pdf myfile.md
+$ docker run -v $(pwd):/source trichards/pandoc --from markdown --to latex -o myfile.pdf myfile.md
 ```
 
 # Hacking
 
 ```bash
 # Build image
-$ docker build -t t-richards/pandoc .
+$ docker build -t trichards/pandoc .
 ```
