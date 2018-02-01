@@ -1,6 +1,8 @@
 # docker-pandoc
 
-A working pandoc environment with LaTeX tools for PDF creation.
+[![](https://images.microbadger.com/badges/image/trichards/pandoc.svg)](https://microbadger.com/images/trichards/pandoc)
+
+A [pandoc][pandoc] environment with [LaTeX][latex] tools for excellent PDF creation.
 
 # Requirements
 
@@ -19,3 +21,6 @@ $ docker run -v $(pwd):/source trichards/pandoc --from markdown --to latex -o my
 # Build image
 $ docker build -t trichards/pandoc .
 ```
+
+[latex]: https://www.latex-project.org/
+[pandoc]: https://pandoc.org/
