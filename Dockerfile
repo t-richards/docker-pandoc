@@ -6,7 +6,7 @@ MAINTAINER Tom Richards <tom@tomrichards.net>
 COPY mirrorlist /etc/pacman.d/mirrorlist
 
 # install pandoc and latex
-RUN pacman --noconfirm -Syy pandoc texlive-most \
+RUN pacman --noconfirm -Syy pandoc texlive-most make \
  && rm -rf \
     /usr/share/man/* \
     /var/cache/pacman/pkg/* \
