@@ -1,6 +1,7 @@
 # docker-pandoc
 
-[![](https://images.microbadger.com/badges/image/trichards/pandoc.svg)](https://microbadger.com/images/trichards/pandoc)
+[![Docker Automated build](https://img.shields.io/docker/automated/trichards/pandoc.svg)](https://hub.docker.com/r/trichards/pandoc/)
+[![Docker Image Size](https://images.microbadger.com/badges/image/trichards/pandoc.svg)](https://microbadger.com/images/trichards/pandoc)
 
 A [pandoc][pandoc] environment with [LaTeX][latex] tools for excellent PDF creation.
 
