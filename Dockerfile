@@ -1,12 +1,13 @@
-FROM archimg/base:2018.01.01
+FROM archimg/base:2018.03.01
 
 MAINTAINER Tom Richards <tom@tomrichards.net>
 
 # fix mirrors
 COPY mirrorlist /etc/pacman.d/mirrorlist
 
-# install pandoc and latex
-RUN pacman --noconfirm -Syy tex-gyre-fonts mpfr make texlive-most pandoc \
+# install packages
+# pandoc, latex, fonts, and select build tools
+RUN pacman --noprogressbar --noconfirm -Syy tex-gyre-fonts mpfr make texlive-most pandoc \
  && rm -rf \
     /usr/share/man/* \
     /var/cache/pacman/pkg/* \
