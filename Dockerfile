@@ -16,6 +16,9 @@ RUN pacman --noprogressbar --noconfirm -Syy git openssh make tex-gyre-fonts mpfr
     /var/lib/pacman/sync/* \
  && mkdir /source
 
+# fix path for biber
+ENV PATH="${PATH}:/usr/bin/vendor_perl"
+
 WORKDIR /source
 
 ENTRYPOINT ["/usr/bin/pandoc"]
