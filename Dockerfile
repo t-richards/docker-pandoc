@@ -7,7 +7,7 @@ COPY mirrorlist /etc/pacman.d/mirrorlist
 
 # install packages
 # pandoc, latex, fonts, and select build tools
-RUN pacman --noprogressbar --noconfirm -Syy git openssh make noto-fonts tex-gyre-fonts mpfr texlive-most biber pandoc \
+RUN pacman --noprogressbar --noconfirm -Syy git openssh make ttf-droid tex-gyre-fonts mpfr texlive-most biber pandoc \
  && rm -rf \
     /usr/share/doc/* \
     /usr/share/man/* \
