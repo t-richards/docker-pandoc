@@ -18,9 +18,3 @@ RUN pacman --noprogressbar --noconfirm -Syy git openssh make ttf-droid tex-gyre-
 
 # fix path for biber
 ENV PATH="${PATH}:/usr/bin/vendor_perl"
-
-WORKDIR /source
-
-ENTRYPOINT ["/usr/bin/pandoc"]
-
-CMD ["--help"]
