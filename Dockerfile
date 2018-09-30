@@ -1,6 +1,5 @@
-FROM archimg/base:2018.05.01
-
-MAINTAINER Tom Richards <tom@tomrichards.net>
+FROM archimg/base:2018.09.01
+LABEL maintainer="Tom Richards <tom@tomrichards.net>"
 
 # fix mirrors
 COPY mirrorlist /etc/pacman.d/mirrorlist
