@@ -4,9 +4,13 @@ LABEL maintainer="Tom Richards <tom@tomrichards.net>"
 # fix mirrors
 COPY mirrorlist /etc/pacman.d/mirrorlist
 
-# install packages
-# pandoc, latex, fonts, and select build tools
-RUN pacman --noprogressbar --noconfirm -Syy git openssh make ttf-droid tex-gyre-fonts mpfr texlive-most biber pandoc \
+# 1. install updates
+# 2. install build tools, fonts, pandoc
+# 3. install texlive-most without texlive-fontsextra
+# 4. cleanup
+RUN pacman --noprogressbar --noconfirm -Syyu \
+ && pacman --noprogressbar --noconfirm -S git openssh make ttf-droid tex-gyre-fonts mpfr biber pandoc \
+ && pacman --noprogressbar --noconfirm -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science \
  && rm -rf \
     /usr/share/doc/* \
     /usr/share/man/* \
