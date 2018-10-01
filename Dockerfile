@@ -21,3 +21,6 @@ RUN pacman --noprogressbar --noconfirm -Syyu \
 
 # fix path for biber
 ENV PATH="${PATH}:/usr/bin/vendor_perl"
+
+# Set working directory
+WORKDIR /source
