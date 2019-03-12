@@ -1,4 +1,4 @@
-FROM archimg/base:2018.09.01
+FROM archlinux/base
 LABEL maintainer="Tom Richards <tom@tomrichards.net>"
 
 # fix mirrors
@@ -9,7 +9,7 @@ COPY mirrorlist /etc/pacman.d/mirrorlist
 # 3. install texlive-most without texlive-fontsextra
 # 4. cleanup
 RUN pacman --noprogressbar --noconfirm -Syyu \
- && pacman --noprogressbar --noconfirm -S git openssh make ttf-droid tex-gyre-fonts mpfr biber pandoc \
+ && pacman --noprogressbar --noconfirm -S git openssh make ttf-droid ttf-liberation tex-gyre-fonts mpfr biber pandoc \
  && pacman --noprogressbar --noconfirm -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science \
  && rm -rf \
     /usr/share/doc/* \
