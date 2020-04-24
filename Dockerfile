@@ -8,6 +8,7 @@ COPY mirrorlist /etc/pacman.d/mirrorlist
 # 2. install build tools, fonts, pandoc
 # 3. install texlive-most without texlive-fontsextra
 # 4. cleanup
+# 5. refresh tex database manually
 RUN pacman --noprogressbar --noconfirm -Syyu \
  && pacman --noprogressbar --noconfirm -S git openssh make ttf-droid ttf-liberation tex-gyre-fonts mpfr biber pandoc \
  && pacman --noprogressbar --noconfirm -S texlive-bibtexextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science \
@@ -17,6 +18,7 @@ RUN pacman --noprogressbar --noconfirm -Syyu \
     /usr/share/info/* \
     /var/cache/pacman/pkg/* \
     /var/lib/pacman/sync/* \
+ && texhash \
  && mkdir /source
 
 # fix path for biber
