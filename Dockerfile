@@ -20,10 +20,10 @@ RUN sed -i -e '/IgnorePkg *=/s/^.*$/IgnorePkg = coreutils/' /etc/pacman.conf \
     /usr/share/info/* \
     /var/cache/pacman/pkg/* \
     /var/lib/pacman/sync/* \
- && mkdir /source
+ && mkdir /workspace
 
 # fix path for biber
 ENV PATH="${PATH}:/usr/bin/vendor_perl"
 
 # Set working directory
-WORKDIR /source
+WORKDIR /workspace
