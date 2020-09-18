@@ -29,8 +29,7 @@ RUN set -ex; \
 # fix path for biber
 ENV PATH="${PATH}:/usr/bin/vendor_perl"
 
-# Set working directory
+# https://github.com/whalebrew/whalebrew
 WORKDIR /workdir
-
-# Labels
 LABEL io.whalebrew.name "pandoc"
+ENTRYPOINT ["pandoc"]
