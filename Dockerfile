@@ -1,4 +1,4 @@
-# Build image
+# Custom package builder image
 FROM archlinux:20200908 as builder
 
 COPY mirrorlist /etc/pacman.d/mirrorlist
@@ -17,16 +17,18 @@ RUN set -ex; \
 FROM archlinux:20200908
 LABEL maintainer="Tom Richards <tom@tomrichards.net>"
 
-# fix mirrors
+# custom packages
 COPY --from=builder /tmp/ttf-paratype/*.pkg.tar.zst /opt/
+
+# fix mirrors
 COPY mirrorlist /etc/pacman.d/mirrorlist
 
 RUN set -ex; \
     # 0. install custom packages
-    pacman --noconfirm -U /opt/*.pkg.tar.zst; \
+    pacman --noprogressbar --noconfirm -U /opt/*.pkg.tar.zst; \
     # 1. workaround for broken coreutils
     #    https://gitlab.archlinux.org/archlinux/archlinux-docker/-/issues/32#note_1895
-    pacman --noconfirm -U https://archive.archlinux.org/packages/c/coreutils/coreutils-8.31-3-x86_64.pkg.tar.xz; \
+    pacman --noprogressbar --noconfirm -U https://archive.archlinux.org/packages/c/coreutils/coreutils-8.31-3-x86_64.pkg.tar.xz; \
     sed -i -e '/IgnorePkg *=/s/^.*$/IgnorePkg = coreutils/' /etc/pacman.conf; \
     # 2. install updates
     pacman --noprogressbar --noconfirm -Syyu; \
