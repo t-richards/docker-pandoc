@@ -1,0 +1,9 @@
+# Directories
+.git
+
+# Files
+.dockerignore
+Dockerfile
+LICENSE
+README.md
+*.log

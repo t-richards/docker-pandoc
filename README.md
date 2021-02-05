@@ -5,11 +5,21 @@
 
 A [pandoc][pandoc] environment with [LaTeX][latex] tools for excellent PDF creation.
 
-# Requirements
+## Requirements
 
  - Docker
 
-# Getting started
+## Getting started (whalebrew)
+
+```bash
+# Install shim to /usr/local/bin
+whalebrew install trichards/pandoc
+
+# Run pandoc as though it were installed locally
+pandoc --version
+```
+
+## Getting started (manual)
 
 ```bash
 # Compile myfile.md to myfile.pdf
@@ -19,7 +29,7 @@ $ docker run -v $(pwd):/workdir trichards/pandoc --from markdown --to latex -o m
 $ docker run -v $(pwd):/workdir --entrypoint=/usr/bin/make trichards/pandoc
 ```
 
-# Hacking
+## Hacking
 
 ```bash
 # Build image
