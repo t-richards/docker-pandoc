@@ -32,11 +32,13 @@ COPY --from=builder /tmp/*.pkg.tar.zst /opt/
 COPY mirrorlist /etc/pacman.d/mirrorlist
 
 RUN set -ex; \
-    # 0. install custom packages
+    # 0. install updates
+    pacman --noprogressbar --noconfirm -Syu; \
+    # 1. install custom packages
     pacman --noprogressbar --noconfirm -U /opt/*.pkg.tar.zst; \
-    # 1. install build tools, fonts, pandoc
+    # 2. install build tools, fonts, pandoc
     pacman --noprogressbar --noconfirm -Sy git openssh make ttf-droid ttf-hack ttf-liberation tex-gyre-fonts mpfr biber pandoc; \
-    # 2. install texlive-most without texlive-fontsextra
+    # 3. install texlive-most without texlive-fontsextra
     pacman --noprogressbar --noconfirm -Sy texlive-bibtexextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science
 
 # fix path for biber
