@@ -9,8 +9,8 @@ RUN set -ex; \
 USER nobody
 WORKDIR /tmp
 RUN set -ex; \
-    git clone https://aur.archlinux.org/ttf-paratype; \
-    cd ttf-paratype; \
+    git clone https://aur.archlinux.org/ttf-pt-public-pack.git; \
+    cd ttf-pt-public-pack \
     makepkg -s; \
     mv *.pkg.tar.zst ../.; \
     cd /tmp; \
