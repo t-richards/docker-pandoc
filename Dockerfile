@@ -34,12 +34,13 @@ COPY mirrorlist /etc/pacman.d/mirrorlist
 RUN set -ex; \
     # 0. install updates
     pacman --noprogressbar --noconfirm -Syu; \
-    # 1. install custom packages
+    # 1. install custom packages from the builder stage
     pacman --noprogressbar --noconfirm -U /opt/*.pkg.tar.zst; \
     # 2. install build tools, fonts, pandoc
     pacman --noprogressbar --noconfirm -Sy git openssh make ttf-droid ttf-hack ttf-liberation tex-gyre-fonts mpfr biber pandoc; \
-    # 3. install texlive-most without texlive-fontsextra
-    pacman --noprogressbar --noconfirm -Sy texlive-bibtexextra texlive-binextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science; \
+    # 3. install all of texlive without texlive-fontsextra
+    # pactree -s texlive-meta -l -d 1 | grep -v texlive-fontsextra | grep -v texlive-meta | xargs echo
+    pacman --noprogressbar --noconfirm -Sy texlive-bin texlive-basic texlive-bibtexextra texlive-binextra texlive-context texlive-fontsrecommended texlive-fontutils texlive-formatsextra texlive-games texlive-humanities texlive-latex texlive-latexextra texlive-latexrecommended texlive-luatex texlive-mathscience texlive-metapost texlive-music texlive-pictures texlive-plaingeneric texlive-pstricks texlive-publishers texlive-xetex
     # 4. install helper tools
     pacman --noprogressbar --noconfirm -Sy github-cli
 
