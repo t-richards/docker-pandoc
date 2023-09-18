@@ -39,7 +39,7 @@ RUN set -ex; \
     # 2. install build tools, fonts, pandoc
     pacman --noprogressbar --noconfirm -Sy git openssh make ttf-droid ttf-hack ttf-liberation tex-gyre-fonts mpfr biber pandoc; \
     # 3. install texlive-most without texlive-fontsextra
-    pacman --noprogressbar --noconfirm -Sy texlive-bibtexextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science; \
+    pacman --noprogressbar --noconfirm -Sy texlive-bibtexextra texlive-binextra texlive-core texlive-formatsextra texlive-games texlive-humanities texlive-latexextra texlive-music texlive-pictures texlive-pstricks texlive-publishers texlive-science; \
     # 4. install helper tools
     pacman --noprogressbar --noconfirm -Sy github-cli
 
