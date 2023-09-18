@@ -10,7 +10,7 @@ USER nobody
 WORKDIR /tmp
 RUN set -ex; \
     git clone https://aur.archlinux.org/ttf-pt-public-pack.git; \
-    cd ttf-pt-public-pack \
+    cd ttf-pt-public-pack; \
     makepkg -s; \
     mv *.pkg.tar.zst ../.; \
     cd /tmp; \
